@@ -1,6 +1,9 @@
 from flask import Flask, make_response
+from flask_script import Manager
 
 app = Flask(__name__)
+# +3
+manager = Manager(app)
 
 
 @app.route('/')
@@ -24,4 +27,4 @@ def test_make_response():
 
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    manager.run()
