@@ -1,4 +1,5 @@
 {% extends "base.html" %}
+{% import "bootstrap/wtf.html" as wtf %}
 
 {% block page_content %}
 <div class="page-header">
@@ -8,23 +9,12 @@
         <h1>Hello, Stranger!</h1>
     {% endif %}
 </div>
+{{ wtf.quick_form(form) }}
+{#<form method="post">#}
+{#	{{ form.hidden_tag() }}#}
+{#	<p>{{ form.name.label }}</p>#}
+{#	<p>{{ form.name() }}</p>#}
+{#	<p>{{ form.submit() }}</p>#}
+{#</form>#}
 
-<ul>
-    {% for key, value in dict.items() %}
-    <li>{{name|title}}'s {{key}} is {{value}}!</li>
-    {% endfor %}
-</ul>
-
-{% import "macros.html" as macros %}
-<ul>
-    {% for key in dict.keys() %}
-    {{macros.italic(key)}}
-    {% endfor %}
-</ul>
-<ul>
-    {% for value in dict.values() %}
-    {{macros.bold(value)}}
-    {% endfor %}
-</ul>
-{% include "timestamp.html" %}
 {% endblock %}
