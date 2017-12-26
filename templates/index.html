@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block page_content %}
+<div class="page-header">
+    {% if name %}
+        <h1>Hello, {{name|title}}!</h1>
+    {% else %}
+        <h1>Hello, Stranger!</h1>
+    {% endif %}
+</div>
+
+<ul>
+    {% for key, value in dict.items() %}
+    <li>{{name|title}}'s {{key}} is {{value}}!</li>
+    {% endfor %}
+</ul>
+
+{% import "macros.html" as macros %}
+<ul>
+    {% for key in dict.keys() %}
+    {{macros.italic(key)}}
+    {% endfor %}
+</ul>
+<ul>
+    {% for value in dict.values() %}
+    {{macros.bold(value)}}
+    {% endfor %}
+</ul>
+{% include "timestamp.html" %}
+{% endblock %}
