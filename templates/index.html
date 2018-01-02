@@ -8,6 +8,11 @@
     {% else %}
         <h1>Hello, Stranger!</h1>
     {% endif %}
+	{% if not known %}
+		<p>Pleased to meet you!</p>
+	{% else %}
+		<p>Happy to see you again!</p>
+	{% endif %}
 </div>
 {{ wtf.quick_form(form) }}
 {#<form method="post">#}
@@ -16,5 +21,4 @@
 {#	<p>{{ form.name() }}</p>#}
 {#	<p>{{ form.submit() }}</p>#}
 {#</form>#}
-
 {% endblock %}
